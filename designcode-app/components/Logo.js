@@ -13,9 +13,12 @@ export default Logo;
 const Container = styled.View`
   flex-direction: row;
   background: white;
+  border-radius: 10px;
   height: 60px;
-  padding: 12px;
-  box-s
+  padding: 12px 16px 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  margin: 0 8px;
 `;
 
 const Image = styled.Image`

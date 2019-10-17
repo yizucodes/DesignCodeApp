@@ -23,7 +23,21 @@ export default function App() {
               style={{ position: "absolute", right: 20, top: 5 }}
             />
           </TitleBar>
-          <Logo image={require("./assets/logo-framerx.png")} text="Framer X" />
+          <ScrollView
+            style={{
+              flexDirection: "row",
+              padding: 20,
+              paddingLeft: 12,
+              paddingTop: 30
+            }}
+            horizontal={true}
+          >
+            <Logo
+              image={require("./assets/logo-framerx.png")}
+              text="Framer X"
+            />
+            <Logo image={require("./assets/logo-figma.png")} text="Figma" />
+          </ScrollView>
           <Subtitle>Continue Learning</Subtitle>
           <ScrollView
             horizontal={true}
@@ -32,15 +46,15 @@ export default function App() {
           >
             <Card
               title={"Styled Components"}
-              image={"./assets/background2.jpg"}
-              caption={"React Native"}
+              image={require("./assets/background2.jpg")}
+              caption="React Native"
               logo={require("./assets/logo-react.png")}
               subtitle="5 of 12 sections"
             />
             <Card
               title={"Styled Components 2"}
-              image={"./assets/background1.jpg"}
-              caption={"React Native"}
+              image={require("./assets/background1.jpg")}
+              caption="React Native"
               logo={require("./assets/logo-react.png")}
               subtitle="5 of 12 sections"
             />
@@ -56,7 +70,7 @@ const Subtitle = styled.Text`
   font-weight: 600;
   font-size: 15px;
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
   text-transform: uppercase;
 `;
 
