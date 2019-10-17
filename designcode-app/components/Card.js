@@ -5,13 +5,13 @@ const Card = props => (
   <Containter>
     <Cover>
       <Image source={require("../assets/background2.jpg")} />
-      <Title>Styled Components</Title>
+      <Title>{props.title}</Title>
     </Cover>
     <Content>
       <Logo source={require("../assets/logo-react.png")} />
       <Wrapper>
-        <Caption>React Native</Caption>
-        <Subtitle>5 of 12 sections</Subtitle>
+        <Caption>{props.caption}</Caption>
+        <Subtitle>{props.subtitle}</Subtitle>
       </Wrapper>
     </Content>
   </Containter>

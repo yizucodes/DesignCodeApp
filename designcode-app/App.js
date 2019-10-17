@@ -1,17 +1,52 @@
 import React from "react";
+import { SafeAreaView, ScrollView } from "react-native";
 import styled from "styled-components";
 import Card from "./components/Card";
+import { Ionicons } from "@expo/vector-icons";
+import Logo from "./components/Logo";
 
 export default function App() {
   return (
     <Container>
-      <TitleBar>
-        <Avatar source={require("./assets/avatar.jpg")} />
-        <Title>Welcome back,</Title>
-        <Name> Yi</Name>
-      </TitleBar>
-      <Subtitle>Continue Learning</Subtitle>
-      <Card />
+      <SafeAreaView>
+        <ScrollView style={{ height: "100%" }}>
+          <TitleBar>
+            <Avatar source={require("./assets/avatar.jpg")} />
+            <Title>Welcome back,</Title>
+            <Name> Yi</Name>
+            {/* <NotificationIcon
+              style={{ position: "absolute", right: 20, top: 5 }}
+            /> */}
+            <Ionicons
+              name="ios-notifications"
+              size={32}
+              style={{ position: "absolute", right: 20, top: 5 }}
+            />
+          </TitleBar>
+          <Logo image={require("./assets/logo-framerx.png")} text="Framer X" />
+          <Subtitle>Continue Learning</Subtitle>
+          <ScrollView
+            horizontal={true}
+            style={{ paddingBottom: 30 }}
+            showsHorizontalScrollIndicator={false}
+          >
+            <Card
+              title={"Styled Components"}
+              image={"./assets/background2.jpg"}
+              caption={"React Native"}
+              logo={require("./assets/logo-react.png")}
+              subtitle="5 of 12 sections"
+            />
+            <Card
+              title={"Styled Components 2"}
+              image={"./assets/background1.jpg"}
+              caption={"React Native"}
+              logo={require("./assets/logo-react.png")}
+              subtitle="5 of 12 sections"
+            />
+          </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     </Container>
   );
 }
