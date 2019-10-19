@@ -4,19 +4,18 @@ import styled from "styled-components";
 import Card from "./components/Card";
 import { Ionicons } from "@expo/vector-icons";
 import Logo from "./components/Logo";
+import Menu from "./components/Menu";
 
 export default function App() {
   return (
     <Container>
+      <Menu />
       <SafeAreaView>
         <ScrollView style={{ height: "100%" }}>
           <TitleBar>
             <Avatar source={require("./assets/avatar.jpg")} />
             <Title>Welcome back,</Title>
             <Name> Yi</Name>
-            {/* <NotificationIcon
-              style={{ position: "absolute", right: 20, top: 5 }}
-            /> */}
             <Ionicons
               name="ios-notifications"
               size={32}
