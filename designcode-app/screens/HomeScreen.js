@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import { SafeAreaView, ScrollView, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import Card from "../components/Card";
 import { Ionicons } from "@expo/vector-icons";
@@ -8,70 +8,72 @@ import Menu from "../components/Menu";
 import Course from "../components/Course";
 
 export default class HomeScreen extends React.Component {
-  return (
-    <Container>
-      <Menu />
-      <SafeAreaView>
-        <ScrollView style={{ height: "100%" }}>
-          <TitleBar>
-            <Avatar source={require("../assets/avatar.jpg")} />
-            <Title>Welcome back,</Title>
-            <Name> Yi</Name>
-            <Ionicons
-              name="ios-notifications"
-              size={32}
-              style={{ position: "absolute", right: 20, top: 5 }}
-            />
-          </TitleBar>
-          <ScrollView
-            style={{
-              flexDirection: "row",
-              padding: 20,
-              paddingLeft: 12,
-              paddingTop: 30
-            }}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          >
-            {logos.map((logo, index) => (
-              <Logo key={index} image={logo.image} text={logo.text} />
-            ))}
-          </ScrollView>
-          <Subtitle>Continue Learning</Subtitle>
-          <ScrollView
-            horizontal={true}
-            style={{ paddingBottom: 30 }}
-            showsHorizontalScrollIndicator={false}
-          >
-            {cards.map((card, index) => (
-              <Card
+  render() {
+    return (
+      <Container>
+        <Menu />
+        <SafeAreaView>
+          <ScrollView style={{ height: "100%" }}>
+            <TitleBar>
+              <Avatar source={require("../assets/avatar.jpg")} />
+              <Title>Welcome back,</Title>
+              <Name> Yi</Name>
+              <Ionicons
+                name="ios-notifications"
+                size={32}
+                style={{ position: "absolute", right: 20, top: 5 }}
+              />
+            </TitleBar>
+            <ScrollView
+              style={{
+                flexDirection: "row",
+                padding: 20,
+                paddingLeft: 12,
+                paddingTop: 30
+              }}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            >
+              {logos.map((logo, index) => (
+                <Logo key={index} image={logo.image} text={logo.text} />
+              ))}
+            </ScrollView>
+            <Subtitle>Continue Learning</Subtitle>
+            <ScrollView
+              horizontal={true}
+              style={{ paddingBottom: 30 }}
+              showsHorizontalScrollIndicator={false}
+            >
+              {cards.map((card, index) => (
+                <Card
+                  key={index}
+                  title={card.title}
+                  image={card.image}
+                  caption={card.caption}
+                  logo={card.logo}
+                  subtitle={card.subtitle}
+                />
+              ))}
+            </ScrollView>
+            <Subtitle>Popular Courses</Subtitle>
+
+            {courses.map((course, index) => (
+              <Course
                 key={index}
-                title={card.title}
-                image={card.image}
-                caption={card.caption}
-                logo={card.logo}
-                subtitle={card.subtitle}
+                title={course.title}
+                subtitle={course.subtitle}
+                image={course.image}
+                logo={course.logo}
+                author={course.logo}
+                avatar={course.avatar}
+                caption={course.caption}
               />
             ))}
           </ScrollView>
-          <Subtitle>Popular Courses</Subtitle>
-
-          {courses.map((course, index) => (
-            <Course
-              key={index}
-              title={course.title}
-              subtitle={course.subtitle}
-              image={course.image}
-              logo={course.logo}
-              author={course.logo}
-              avatar={course.avatar}
-              caption={course.caption}
-            />
-          ))}
-        </ScrollView>
-      </SafeAreaView>
-    </Container>
-  );
+        </SafeAreaView>
+      </Container>
+    );
+  }
 }
 
 const Subtitle = styled.Text`
