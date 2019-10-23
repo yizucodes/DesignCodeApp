@@ -6,8 +6,23 @@ import { Ionicons } from "@expo/vector-icons";
 import Logo from "../components/Logo";
 import Menu from "../components/Menu";
 import Course from "../components/Course";
+import { connect } from "react-redux";
 
-export default class HomeScreen extends React.Component {
+//Use properties from redux
+function mapStateToProps(state) {
+  return { action: state.action };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    openMenu: () =>
+      dispatch({
+        type: "OPEN_MENU"
+      })
+  };
+}
+
+class HomeScreen extends React.Component {
   render() {
     return (
       <Container>
@@ -15,7 +30,9 @@ export default class HomeScreen extends React.Component {
         <SafeAreaView>
           <ScrollView style={{ height: "100%" }}>
             <TitleBar>
-              <Avatar source={require("../assets/avatar.jpg")} />
+              <TouchableOpacity onPress={this.props.openMenu}>
+                <Avatar source={require("../assets/avatar.jpg")} />
+              </TouchableOpacity>
               <Title>Welcome back,</Title>
               <Name> Yi</Name>
               <Ionicons
@@ -76,6 +93,11 @@ export default class HomeScreen extends React.Component {
   }
 }
 
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen);
+
 const Subtitle = styled.Text`
   color: #b8bece;
   font-weight: 600;
@@ -113,10 +135,6 @@ const Avatar = styled.Image`
   height: 44px;
   background: black;
   border-radius: 22px;
-  margin-left: 20px;
-  position: absolute;
-  top: 0;
-  left: 0;
 `;
 
 const logos = [

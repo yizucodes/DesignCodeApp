@@ -3,6 +3,8 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import HomeScreen from "./screens/HomeScreen";
 
+//Has all states from redux
+
 const initialState = {
   action: ""
 };
@@ -16,7 +18,6 @@ const reducer = (state = initialState, action) => {
     default:
       return state;
   }
-
   return state;
 };
 
