@@ -15,11 +15,12 @@ import Menu from "../components/Menu";
 import Course from "../components/Course";
 import { connect } from "react-redux";
 
-//Use properties from redux
+//Takes state and returns a plain object with data that the connected component needs.
 function mapStateToProps(state) {
   return { action: state.action };
 }
 
+//Dispatch actions to store to trigger state change (open menu)
 function mapDispatchToProps(dispatch) {
   return {
     openMenu: () =>

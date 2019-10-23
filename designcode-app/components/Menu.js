@@ -5,10 +5,12 @@ import { Ionicons } from "@expo/vector-icons";
 import MenuItem from "./MenuItem";
 import { connect } from "react-redux";
 
+//Takes state and returns a plain object with data that the connected component needs.
 function mapStateToProps(state) {
   return { action: state.action };
 }
 
+//Dispatch actions to store to trigger state change (close menu)
 function mapDispatchToProps(dispatch) {
   return {
     closeMenu: () =>
